@@ -1,0 +1,20 @@
+Roles: SuperAdmin, RegionLead, UnitLead, InstituteHead
+Places: Region, Unit, Institute
+
+Tasks:
+1. Create Region : Done
+2. Create Unit: Done
+3. Create Institute: Done
+4. Create User (All Roles): Done
+5. Assign Region to RegionLead: Pending
+6. Assign Unit to UnitLead: Pending
+7. Assign Institute to InstituteHead: Pending
+8. 
+
+
+
+
+GET: ALL, ID
+UPDATE
+DELETE
+

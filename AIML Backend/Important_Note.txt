@@ -1,0 +1,1 @@
+Main Machine Learning model name is MLCode.py after running this our ngrok server will turned on and then we can send the data for analysis

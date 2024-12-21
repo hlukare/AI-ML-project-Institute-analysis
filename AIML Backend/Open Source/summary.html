@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institute Analysis Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .score {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .analysis {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .analysis h3 {
+            margin-top: 0;
+        }
+        #suitabilityChart {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Institute Analysis Dashboard</h1>
+    
+    <h2>Institute Overall Score</h2>
+    <div class="score" id="overallScore"></div>
+    
+    <h2>Infrastructure Suggestions</h2>
+    <table id="infrastructureTable">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Suggestions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    
+    <h2>Real-Time Analysis</h2>
+    <div class="analysis" id="realTimeAnalysis"></div>
+    
+    <h2>Suitability Percentages</h2>
+    <canvas id="suitabilityChart"></canvas>
+    
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/data');
+                const data = await response.json();
+                displayData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        function displayData(data) {
+            // Display overall score
+            document.getElementById('overallScore').textContent = data.institute_overall_score.toFixed(2);
+            
+            // Display infrastructure suggestions
+            const tableBody = document.querySelector('#infrastructureTable tbody');
+            for (const [category, suggestion] of Object.entries(data.infrastructure_suggestions)) {
+                const row = tableBody.insertRow();
+                row.insertCell(0).textContent = category;
+                row.insertCell(1).textContent = suggestion;
+            }
+            
+            // Display real-time analysis
+            const analysisDiv = document.getElementById('realTimeAnalysis');
+            analysisDiv.innerHTML = data.real_time_analysis.replace(/\n/g, '<br>');
+            
+            // Display suitability percentages as a bar chart
+            const ctx = document.getElementById('suitabilityChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(data.suitability_percentages),
+                    datasets: [{
+                        label: 'Suitability Percentage',
+                        data: Object.values(data.suitability_percentages),
+                        backgroundColor: 'rgba(52, 152, 219, 0.6)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            ticks: {
+                                maxRotation: 0, // Make sure the labels are not rotated
+                                minRotation: 0,
+                                stepSize: 2, // X-axis scaling
+                                autoSkip: true // Auto skip labels if too long
+                            },
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                stepSize: 5, // Y-axis scaling
+                                beginAtZero: true
+                            },
+                            beginAtZero: true,
+                            max: 100, // Ensure the y-axis reaches 100
+                            grid: {
+                                display: true
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>

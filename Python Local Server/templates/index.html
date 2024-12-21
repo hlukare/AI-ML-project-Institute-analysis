@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Frame Capture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .capture-table {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        .capture-table th {
+            background: #f8f9fa;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #374151;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .capture-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .camera-id {
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            padding: 0.5rem;
+            width: 60px;
+            text-align: center;
+        }
+
+        .actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-direction: column;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e5e7eb;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #f8f9fa;
+            border-color: #d1d5db;
+        }
+
+        .start-capture {
+            background: #10b981;
+            color: white;
+            border-color: #059669;
+        }
+
+        .start-capture:hover {
+            background: #059669;
+        }
+
+        .stop-capture {
+            background: #ef4444;
+            color: white;
+            border-color: #dc2626;
+        }
+
+        .stop-capture:hover {
+            background: #dc2626;
+        }
+
+        .send-frames {
+            background: #3b82f6;
+            color: white;
+            border-color: #2563eb;
+            padding: 0.75rem;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .send-frames:hover {
+            background: #2563eb;
+        }
+
+        .success-message {
+            color: #ef4444;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        #loadingOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CCTV Frame Capture</h1>
+        <form id="captureForm">
+            <table class="capture-table" id="coursesTable">
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Camera ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will be populated here -->
+                </tbody>
+            </table>
+
+            <button type="button" class="send-frames">Send Frames</button>
+        </form>
+        <div class="success-message" id="statusMessage"></div>
+    </div>
+
+    <div id="loadingOverlay">
+        <div style="text-align: center;">
+            <div style="border: 4px solid #f3f3f3; border-top: 4px solid #3b82f6; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;"></div>
+            <p style="margin-top: 1rem; font-size: 1rem; font-weight: 500; color: #374151;">Sending frames...</p>
+        </div>
+    </div>
+
+    <script>
+        function fetchCourses() {
+            fetch('/get_courses_with_cameras')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const tableBody = document.getElementById('coursesTable').getElementsByTagName('tbody')[0];
+                        tableBody.innerHTML = '';
+
+                        data.courses.forEach(course => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${course.course_name}</td>
+                                <td>
+                                    <input type="text" class="camera-id" placeholder="Enter Camera ID" value="${course.camera_id || ''}" disabled>
+                                </td>
+                                <td>
+                                    <div class="actions">
+                                        <button type="button" class="editCameraButton">Edit</button>
+                                        <button type="button" class="saveCameraButton" style="display: none;">Save</button>
+                                        <button type="button" class="start-capture">Start Capture</button>
+                                        <button type="button" class="stop-capture">Stop Capture</button>
+                                    </div>
+                                </td>
+                            `;
+                            tableBody.appendChild(row);
+
+                            const cameraInput = row.querySelector('.camera-id');
+                            const editButton = row.querySelector('.editCameraButton');
+                            const saveButton = row.querySelector('.saveCameraButton');
+                            const startCaptureButton = row.querySelector('.start-capture');
+                            const stopCaptureButton = row.querySelector('.stop-capture');
+
+                            editButton.addEventListener('click', () => {
+                                event.preventDefault();
+                                cameraInput.disabled = false;
+                                editButton.style.display = 'none';
+                                saveButton.style.display = 'inline-block';
+                            });
+
+                            saveButton.addEventListener('click', () => {
+                                event.preventDefault();
+                                const newCameraId = cameraInput.value;
+                                saveCameraId(course._id, newCameraId)
+                                    .then(() => {
+                                        cameraInput.disabled = true;
+                                        editButton.style.display = 'inline-block';
+                                        saveButton.style.display = 'none';
+                                    })
+                                    .catch(error => {
+                                        console.error('Failed to save Camera ID:', error);
+                                        alert('Failed to save Camera ID. Please try again.');
+                                    });
+                            });
+
+                            startCaptureButton.addEventListener('click', event => {
+                                event.preventDefault();
+                                startCapture(course._id, cameraInput.value);
+                            });
+                            stopCaptureButton.addEventListener('click', event => {
+                                event.preventDefault();
+                                stopCapture(cameraInput.value);
+                            });
+                        });
+                    } else {
+                        console.error('Failed to fetch courses:', data.message);
+                    }
+                })
+                .catch(error => console.error('Error fetching courses:', error));
+        }
+
+        function saveCameraId(courseId, newCameraId) {
+            return fetch('/update_camera_id', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'course_id': courseId,
+                    'camera_id': newCameraId
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            }).then(response => response.json())
+              .then(data => {
+                  if (data.status !== 'success') {
+                      throw new Error(data.message || 'Error saving Camera ID');
+                  }
+              });
+        }
+
+        function startCapture(courseId, cameraId) {
+            fetch('/start_capture', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'course_id': courseId,
+                    'camera_id': cameraId
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('statusMessage').innerText = data.message;
+                document.getElementById('statusMessage').style.color = data.status === 'success' ? 'green' : 'red';
+            });
+        }
+
+        function stopCapture(cameraId) {
+            fetch('/stop_capture', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'camera_id': cameraId
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('statusMessage').innerText = data.message;
+                document.getElementById('statusMessage').style.color = data.status === 'success' ? 'green' : 'red';
+            });
+        }
+
+        document.querySelector('.send-frames').onclick = function() {
+            const sendButton = document.querySelector('.send-frames');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+
+            loadingOverlay.style.display = 'flex';
+            sendButton.disabled = true;
+
+            fetch('/send_frames', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'institute_id': 'sample_institute_id'
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const message = data.results?.[0]?.result?.message || 'Error: Something went wrong';
+                document.getElementById('statusMessage').innerText = message;
+                document.getElementById('statusMessage').style.color = data.results[0].result.status === 'success' ? 'green' : 'red';
+            })
+            .catch(error => {
+                document.getElementById('statusMessage').innerText = "An error occurred: " + error.message;
+                document.getElementById('statusMessage').style.color = 'red';
+            })
+            .finally(() => {
+                loadingOverlay.style.display = 'none';
+                sendButton.disabled = false;
+            });
+        };
+
+        window.onload = fetchCourses;
+    </script>
+</body>
+</html>
