@@ -43,66 +43,105 @@ flowchart TD
     F --> G[Institute Ranking & Alerts]
 ```
 
-🧪 Technical Approach
-Layer	Description
-🔍 Data Input	Physical + digital activity logs from classrooms
-🧼 Preprocessing	Cleansing & structuring data for accuracy
-🤖 ML Parsing	Extracting patterns & activity insights
-📈 AI Evaluation	Performance scoring + curriculum relevance via market comparison
-📊 Visualization	Intuitive dashboards for institute ranking, trends, and intervention alerts
-📈 Dashboard Preview
-Scorecards, trend graphs, institute rankings, and curriculum relevancy index.
+## 🧪 Technical Approach
 
+| 🔁 **Layer**         | 📋 **Description** |
+|----------------------|--------------------|
+| 🔍 **Data Input**     | Physical + digital activity logs from classrooms |
+| 🧼 **Preprocessing**   | Cleansing & structuring data for accuracy |
+| 🤖 **ML Parsing**      | Extracting patterns & activity insights |
+| 📈 **AI Evaluation**   | Performance scoring + curriculum relevance via market comparison |
+| 📊 **Visualization**   | Intuitive dashboards for institute ranking, trends, and intervention alerts |
 
-🔐 Feasibility, Challenges & Mitigations
-Aspect	Details
-✅ Feasibility	Works with varied classroom settings, pre-trained models, minimal setup
-⚠️ Challenges	Data privacy, activity diversity, environment-specific generalization
-🛡️ Solutions	Strong encryption, flexible algorithms, regular model tuning
+---
 
-🌍 Impact & Benefits
-🎓 Social: Personalized learning, improved training outcomes
-💸 Economic: Cost-effective, no need for retraining models frequently
-🌱 Environmental: Digital shift = less paper, travel, and energy waste
-🔁 Continuous Feedback Loop for institutional improvement
-📊 Data-Driven Decisions = higher educational standards
+## 📈 Dashboard Preview
 
-💡 Unique Selling Points
-✔️ Early-Warning System for At-Risk Institutes
-✔️ Curriculum Relevancy Benchmarking
-✔️ Peer Comparison Reports
-✔️ Real-Time Automated Feedback for Trainers
-✔️ Predictive Analytics for Student Outcomes
+> **Visualizations include:**  
+> ✅ Scorecards  
+> ✅ Trend graphs  
+> ✅ Institute rankings  
+> ✅ Curriculum relevancy index
 
-🧩 Tech Stack
-🐍 Python
-🧠 Scikit-learn, OpenCV
-🧮 Google Vertex AI
-📊 Chart.js / D3.js for visualizations
-🛡️ JWT, HTTPS, DB encryption
-☁️ Firebase / MongoDB (future scope)
+![Dashboard Preview](https://your-image-host.com/dashboard-preview.png)
 
-🔗 References
-AI-based Monitoring System – MDPI Paper
-Computer Vision for Education Monitoring
-Google Vertex AI
-OpenCV-Python
-Video Explanation
+---
 
-👨‍💻 Team Info
-Team Name: TechSpectra
-Team ID: 38685
-🏆 Winners of National-Level Hackathons (SIH, Hack-a-Sol, etc.)
+## 🔐 Feasibility, Challenges & Mitigations
 
-🖼️ Website Snapshots (UI Screens & Dashboard Previews)
-📷 Below are mockups and screenshots of our AI dashboard, classroom monitoring system, and curriculum evaluation reports.
+| 💡 **Aspect**     | 🔍 **Details** |
+|-------------------|----------------|
+| ✅ **Feasibility** | Works with varied classroom settings, pre-trained models, minimal setup |
+| ⚠️ **Challenges**  | Data privacy, activity diversity, environment-specific generalization |
+| 🛡️ **Solutions**   | Strong encryption, flexible algorithms, regular model tuning |
+
+---
+
+## 🌍 Impact & Benefits
+
+- 🎓 **Social:** Personalized learning, improved training outcomes  
+- 💸 **Economic:** Cost-effective, no need for retraining models frequently  
+- 🌱 **Environmental:** Digital shift = less paper, travel, and energy waste  
+- 🔁 **Continuous Feedback Loop** for institutional improvement  
+- 📊 **Data-Driven Decisions** = higher educational standards  
+
+---
+
+## 💡 Unique Selling Points
+
+✔️ Early-Warning System for At-Risk Institutes  
+✔️ Curriculum Relevancy Benchmarking  
+✔️ Peer Comparison Reports  
+✔️ Real-Time Automated Feedback for Trainers  
+✔️ Predictive Analytics for Student Outcomes  
+
+---
+
+## 🧩 Tech Stack
+
+| ⚙️ **Component**     | 🛠️ **Technology**         |
+|----------------------|---------------------------|
+| 🐍 Backend            | Python                    |
+| 🧠 Machine Learning   | Scikit-learn, OpenCV      |
+| 🧮 AI Platform        | Google Vertex AI          |
+| 📊 Visualization      | Chart.js, D3.js           |
+| 🔐 Security           | JWT, HTTPS, DB Encryption |
+| ☁️ Database (Future) | Firebase, MongoDB         |
+
+---
+
+## 🔗 References
+
+- [📄 AI-based Monitoring System – MDPI Paper](https://www.mdpi.com/2504-2289/7/1/48)  
+- [🧠 Computer Vision for Education Monitoring](https://rb.gy/f3bbbo)  
+- [🧮 Google Vertex AI](https://ai.google.dev/gemini-api/docs/quickstart?lang=python)  
+- [📦 OpenCV-Python](https://pypi.org/project/opencv-python/)  
+- [🎥 Video Explanation](https://drive.google.com/drive/folders/1wTiOvkfS4TPEdS3nGeXw9hNWEbO3kWdi)
+
+---
+
+## 👨‍💻 Team Info
+
+| 👥 **Team Name** | 🧠 TechSpectra |
+|------------------|---------------|
+| 🆔 **Team ID**     | 38685         |
+| 🏆 **Achievements** | Winners of National-Level Hackathons (SIH, Hack-a-Sol, etc.) |
+
+---
+
+## 🖼️ Website Snapshots (UI Screens & Dashboard Previews)
+
+> 📷 Below are mockups and screenshots of our AI dashboard, classroom monitoring system, and curriculum evaluation reports.
+
 ![dash1](https://github.com/user-attachments/assets/1f9423ec-8c06-49e7-9581-ed8533b09207)
 
 ![dash2](https://github.com/user-attachments/assets/ba862c35-5b6c-4f5d-94e1-f14a61217b11)
 
 ![dash3](https://github.com/user-attachments/assets/71726cfb-d309-47d9-9d7b-92c7f2549171)
 
+---
 
+📌 _Live deployment coming soon!_
 
 
 Methodology:
