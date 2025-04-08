@@ -105,7 +105,7 @@ flowchart TD
 | 🧮 AI Platform        | Google Vertex AI          |
 | 📊 Visualization      | Chart.js, D3.js           |
 | 🔐 Security           | JWT, HTTPS, DB Encryption |
-| ☁️ Database (Future) | Firebase, MongoDB         |
+| ☁️ Database           | Firebase, MongoDB         |
 
 ---
 
