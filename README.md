@@ -6,7 +6,7 @@ Smart Monitoring System for Classroom Activities using ML to analyze 7,000+ imag
 **Problem Statement ID:** 1719  
 **Theme:** Smart Education  
 **Category:** Software  
-![TechSpectra Banner](https://your-image-host.com/ai-banner.png)
+
 
 ---
 
