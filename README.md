@@ -63,7 +63,6 @@ flowchart TD
 > ✅ Institute rankings  
 > ✅ Curriculum relevancy index
 
-![Dashboard Preview](https://your-image-host.com/dashboard-preview.png)
 
 ---
 
