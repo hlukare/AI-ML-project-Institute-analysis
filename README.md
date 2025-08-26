@@ -126,7 +126,7 @@ flowchart TD
 |  **Achievements** | Winners of National-Level Hackathons |
 
 ---
-
+<!-- 
 # Website Snapshots (UI Screens & Dashboard Previews)
 
 # > 📷 Below are mockups and screenshots of our AI dashboard, classroom monitoring system, and curriculum evaluation reports.
@@ -148,3 +148,4 @@ flowchart TD
 # ![image](https://github.com/user-attachments/assets/b82e1fc8-a07d-40de-be81-ffcbc5a4c962)
 
 # ![image](https://github.com/user-attachments/assets/5317f027-bb5d-42f6-8e9a-3155b028cabc)
+-->
