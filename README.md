@@ -113,9 +113,10 @@ flowchart TD
 - [ AI-based Monitoring System – MDPI Paper](https://www.mdpi.com/2504-2289/7/1/48)  
 - [ Computer Vision for Education Monitoring](https://rb.gy/f3bbbo)  
 - [ Google Vertex AI](https://ai.google.dev/gemini-api/docs/quickstart?lang=python)  
-- [ OpenCV-Python](https://pypi.org/project/opencv-python/)  
-- [ Video Explanation](https://drive.google.com/drive/folders/1wTiOvkfS4TPEdS3nGeXw9hNWEbO3kWdi)
-
+- [ OpenCV-Python](https://pypi.org/project/opencv-python/)
+  <!-- 
+[ Video Explanation](https://drive.google.com/drive/folders/1wTiOvkfS4TPEdS3nGeXw9hNWEbO3kWdi)
+  -->
 ---
 
 ##  Team Info
