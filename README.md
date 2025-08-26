@@ -1,36 +1,36 @@
 # TechSpectra
 Smart Monitoring System for Classroom Activities using ML to analyze 7,000+ images, classifying activities like teaching, discussions, and seminars. Automates evaluation of skill development programs, identifies underperforming institutions, and improves training effectiveness. Designed for efficient monitoring and enhanced learning outcomes.
 
-# 📊 AI-Powered Classroom Monitoring System  
-### 🧠 Team TechSpectra  
+#  AI-Powered Classroom Monitoring System  
+###  Team TechSpectra  
 **Theme:** Smart Education  
 **Category:** Software  
 
 
 ---
 
-## 🚀 Overview
+##  Overview
 
-🎯 **Goal**  
+ **Goal**  
 Develop an AI-driven system to monitor classroom sessions, evaluate training effectiveness, assess curriculum relevance, and highlight underperforming institutes — all visualized through an intelligent dashboard.
 
-💡 **Why It Matters**  
+ **Why It Matters**  
 Ineffective teaching and outdated curriculum in skill programs hinder student success. Our system empowers institutions to self-improve with real-time analytics.
 
 ---
 
-## 🧩 Key Features
+##  Key Features
 
-✅ Real-time Classroom Monitoring  
-✅ AI-Based Institute Performance Scoring  
-✅ Curriculum vs. Market Relevance Checker  
-✅ Interactive Dashboards for Trends & Alerts  
-✅ Predictive Analytics for At-Risk Institutes  
-✅ Secure, Flexible & Scalable Architecture  
+ Real-time Classroom Monitoring  
+ AI-Based Institute Performance Scoring  
+ Curriculum vs. Market Relevance Checker  
+ Interactive Dashboards for Trends & Alerts  
+ Predictive Analytics for At-Risk Institutes  
+ Secure, Flexible & Scalable Architecture  
 
 ---
 
-## 🛠️ System Architecture
+##  System Architecture
 
 ```mermaid
 flowchart TD
@@ -44,108 +44,107 @@ flowchart TD
 
 ## 🧪 Technical Approach
 
-| 🔁 **Layer**         | 📋 **Description** |
+|  **Layer**           |  **Description** |
 |----------------------|--------------------|
-| 🔍 **Data Input**     | Physical + digital activity logs from classrooms |
-| 🧼 **Preprocessing**   | Cleansing & structuring data for accuracy |
-| 🤖 **ML Parsing**      | Extracting patterns & activity insights |
-| 📈 **AI Evaluation**   | Performance scoring + curriculum relevance via market comparison |
-| 📊 **Visualization**   | Intuitive dashboards for institute ranking, trends, and intervention alerts |
+|  **Data Input**      | Physical + digital activity logs from classrooms |
+|  **Preprocessing**   | Cleansing & structuring data for accuracy |
+|  **ML Parsing**      | Extracting patterns & activity insights |
+|  **AI Evaluation**   | Performance scoring + curriculum relevance via market comparison |
+|  **Visualization**   | Intuitive dashboards for institute ranking, trends, and intervention alerts |
 
 ---
 
-## 📈 Dashboard Preview
+##  Dashboard Preview
 
 > **Visualizations include:**  
-> ✅ Scorecards  
-> ✅ Trend graphs  
-> ✅ Institute rankings  
-> ✅ Curriculum relevancy index
+>  Scorecards  
+>  Trend graphs  
+>  Institute rankings  
+>  Curriculum relevancy index
 
 
 ---
 
-## 🔐 Feasibility, Challenges & Mitigations
+##  Feasibility, Challenges & Mitigations
 
-| 💡 **Aspect**     | 🔍 **Details** |
-|-------------------|----------------|
-| ✅ **Feasibility** | Works with varied classroom settings, pre-trained models, minimal setup |
-| ⚠️ **Challenges**  | Data privacy, activity diversity, environment-specific generalization |
-| 🛡️ **Solutions**   | Strong encryption, flexible algorithms, regular model tuning |
-
----
-
-## 🌍 Impact & Benefits
-
-- 🎓 **Social:** Personalized learning, improved training outcomes  
-- 💸 **Economic:** Cost-effective, no need for retraining models frequently  
-- 🌱 **Environmental:** Digital shift = less paper, travel, and energy waste  
-- 🔁 **Continuous Feedback Loop** for institutional improvement  
-- 📊 **Data-Driven Decisions** = higher educational standards  
+|  **Aspect**      |  **Details** |
+|------------------|----------------|
+|  **Feasibility** | Works with varied classroom settings, pre-trained models, minimal setup |
+|  **Challenges**  | Data privacy, activity diversity, environment-specific generalization |
+|  **Solutions**   | Strong encryption, flexible algorithms, regular model tuning |
 
 ---
 
-## 💡 Unique Selling Points
+##  Impact & Benefits
 
-✔️ Early-Warning System for At-Risk Institutes  
-✔️ Curriculum Relevancy Benchmarking  
-✔️ Peer Comparison Reports  
-✔️ Real-Time Automated Feedback for Trainers  
-✔️ Predictive Analytics for Student Outcomes  
-
----
-
-## 🧩 Tech Stack
-
-| ⚙️ **Component**     | 🛠️ **Technology**         |
-|----------------------|---------------------------|
-| 🐍 Backend            | Python                    |
-| 🧠 Machine Learning   | Scikit-learn, OpenCV      |
-| 🧮 AI Platform        | Google Vertex AI          |
-| 📊 Visualization      | Chart.js, D3.js           |
-| 🔐 Security           | JWT, HTTPS, DB Encryption |
-| ☁️ Database           | Firebase, MongoDB         |
+-  **Social:** Personalized learning, improved training outcomes  
+-  **Economic:** Cost-effective, no need for retraining models frequently  
+-  **Environmental:** Digital shift = less paper, travel, and energy waste  
+-  **Continuous Feedback Loop** for institutional improvement  
+-  **Data-Driven Decisions** = higher educational standards  
 
 ---
 
-## 🔗 References
+##  Unique Selling Points
 
-- [📄 AI-based Monitoring System – MDPI Paper](https://www.mdpi.com/2504-2289/7/1/48)  
-- [🧠 Computer Vision for Education Monitoring](https://rb.gy/f3bbbo)  
-- [🧮 Google Vertex AI](https://ai.google.dev/gemini-api/docs/quickstart?lang=python)  
-- [📦 OpenCV-Python](https://pypi.org/project/opencv-python/)  
-- [🎥 Video Explanation](https://drive.google.com/drive/folders/1wTiOvkfS4TPEdS3nGeXw9hNWEbO3kWdi)
+✔ Early-Warning System for At-Risk Institutes  
+✔ Curriculum Relevancy Benchmarking  
+✔ Peer Comparison Reports  
+✔ Real-Time Automated Feedback for Trainers  
+✔ Predictive Analytics for Student Outcomes  
 
 ---
 
-## 👨‍💻 Team Info
+##  Tech Stack
 
-| 👥 **Team Name** | 🧠 TechSpectra |
+|  **Component**      |  **Technology**         |
+|---------------------|---------------------------|
+|  Backend            | Python                    |
+|  Machine Learning   | Scikit-learn, OpenCV      |
+|  AI Platform        | Google Vertex AI          |
+|  Visualization      | Chart.js, D3.js           |
+|  Security           | JWT, HTTPS, DB Encryption |
+|  Database           | Firebase, MongoDB         |
+
+---
+
+##  References
+
+- [ AI-based Monitoring System – MDPI Paper](https://www.mdpi.com/2504-2289/7/1/48)  
+- [ Computer Vision for Education Monitoring](https://rb.gy/f3bbbo)  
+- [ Google Vertex AI](https://ai.google.dev/gemini-api/docs/quickstart?lang=python)  
+- [ OpenCV-Python](https://pypi.org/project/opencv-python/)  
+- [ Video Explanation](https://drive.google.com/drive/folders/1wTiOvkfS4TPEdS3nGeXw9hNWEbO3kWdi)
+
+---
+
+##  Team Info
+
+|  **Team Name**   |  TechSpectra |
 |------------------|---------------|
-| 🆔 **Team ID**     | 38685         |
-| 🏆 **Achievements** | Winners of National-Level Hackathons |
+|  **Team ID**     | 38685         |
+|  **Achievements** | Winners of National-Level Hackathons |
 
 ---
 
-## 🖼️ Website Snapshots (UI Screens & Dashboard Previews)
+# Website Snapshots (UI Screens & Dashboard Previews)
 
-> 📷 Below are mockups and screenshots of our AI dashboard, classroom monitoring system, and curriculum evaluation reports.
+# > 📷 Below are mockups and screenshots of our AI dashboard, classroom monitoring system, and curriculum evaluation reports.
 
-![dash1](https://github.com/user-attachments/assets/1f9423ec-8c06-49e7-9581-ed8533b09207)
+# ![dash1](https://github.com/user-attachments/assets/1f9423ec-8c06-49e7-9581-ed8533b09207)
 
-![dash2](https://github.com/user-attachments/assets/ba862c35-5b6c-4f5d-94e1-f14a61217b11)
+# ![dash2](https://github.com/user-attachments/assets/ba862c35-5b6c-4f5d-94e1-f14a61217b11)
 
-![dash3](https://github.com/user-attachments/assets/71726cfb-d309-47d9-9d7b-92c7f2549171)
+# ![dash3](https://github.com/user-attachments/assets/71726cfb-d309-47d9-9d7b-92c7f2549171)
 
----
+# ---
 
-📌 _Live deployment coming soon!_
+# 📌 _Live deployment coming soon!_
 
 
-Methodology:
+# Methodology:
+# ![image](https://github.com/user-attachments/assets/35838164-92ee-4e3f-842e-4e298f6c1f3e)
 
-![image](https://github.com/user-attachments/assets/35838164-92ee-4e3f-842e-4e298f6c1f3e)
+# ![image](https://github.com/user-attachments/assets/b82e1fc8-a07d-40de-be81-ffcbc5a4c962)
 
-![image](https://github.com/user-attachments/assets/b82e1fc8-a07d-40de-be81-ffcbc5a4c962)
-
-![image](https://github.com/user-attachments/assets/5317f027-bb5d-42f6-8e9a-3155b028cabc)
+# ![image](https://github.com/user-attachments/assets/5317f027-bb5d-42f6-8e9a-3155b028cabc)
